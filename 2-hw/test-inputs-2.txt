@@ -1,0 +1,16 @@
+<noprocess>
+     <h4>Current Users</h4>
+     <table border=1 cellpadding=2 width=’80%’>
+</noprocess>
+<attributes>
+class=’name’
+class=’tty’
+class=’number’
+</attributes>
+rserved     ttyp4       Oct  6 09:54
+hsieh       ttyp5       Sep 25 23:57
+msimonet    ttyp6       Oct  1 02:27
+barrer      ttyp7       Oct  6 15:41
+<noprocess>
+</table>
+</noprocess>

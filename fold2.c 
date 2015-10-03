@@ -1,0 +1,71 @@
+#include <stdio.h>
+
+/*
+ * fold.c - reimplementation of the fold program in Unix.
+ * 
+ * input: text in the form of standard input 
+ * output: text wrapped at the length of digits that are given.
+ * errors: 
+ */
+
+#define	DEFAULT_WRAP		30 
+#define LONG_WORD_MODE		1
+#define SPACE_FOUND_MODE	2
+
+int main() 
+{
+
+	int c;
+	int count = 0;
+	int wrap_length = DEFAULT_WRAP;
+	int word_size;
+	char input_buffer[30]; 
+
+	while ( ( word_size = readstring(input_buffer, DEFAULT_WRAP ) ) != 0) {
+
+		if ( (count + word_size) < wrap_length ) {
+
+			puts(input_buffer);
+			count = count + word_size;
+
+		} else if ( count + word_size == wrap_length) {
+
+			puts (input_buffer);
+			putchar('\n');
+			count = 0;
+
+		} else {
+
+			putchar('\n');
+			puts(input_buffer);
+			count = count + word_size;
+
+		}
+
+	}
+
+	return 0;
+}
+
+int readstring (char string_buffer[], int len) 
+{
+
+	int i;
+	int ret_val; 
+	int c;
+
+	while (i < len-1 && ( c = getchar() ) != EOF ) {
+
+			ret_val++;
+
+			string_buffer[i++] = c;
+
+			if (c == ' ') 
+				break;
+
+			return ret_val;
+	}
+
+}
+
+
