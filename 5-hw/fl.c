@@ -67,15 +67,27 @@ void fatal(char *s1, char *s2)
 }
 
 
-int get_record(symtab_t *table, FILE *data) {
+void mailmerge(symtab_t *table, FILE *fmt) {
 
-	// start with an empty table
-	clear_table(table);
-	show_table(table);
+	/* do stuff */
+
+	return; 
+
+}
+
+/*
+ * get_record - reads a name / value pair and stores it in 
+ * 				the table passed to it.
+ * inputs: 	table - pointer to a symtab_t type table 
+ *			data  - pointer to a file with name / value pairs separated by an 
+ *					equals sign and terminated by a delimiter, one record per line. 
+ * returns: YES if there is more data in the file, NO if the file has reached it's end.
+ * errors: if field / value separators are not '=' this will not work.
+ */
+int get_record(symtab_t *table, FILE *data) {
 
 	//starting in read label mode
 	int mode = READ_FIELD;
-	int c = 0;
 	int rv = YES; 
 
 	char field[MAXFLD] = "";
@@ -83,9 +95,8 @@ int get_record(symtab_t *table, FILE *data) {
 	char *field_p = field;
 	char *value_p = value;
 
+	// while line has not been terminated
 	while ( rv != NO ) {
-
-		//show_table(table);
 
 		if (mode == READ_FIELD) {
 
@@ -95,39 +106,24 @@ int get_record(symtab_t *table, FILE *data) {
 				reset_mode_and_counters(&mode, field_p, value_p);
 				break;
 			}
-
-			if (DEBUG)
-				printf("read field %s rv was %d\n", field_p, rv);
-
 			mode = READ_VALUE;
 
 		} else if (mode == READ_VALUE) {
 
-
 			rv = read_word(value_p, MAXVAL, ';');
-			//if ( (rv = read_word(value_p, MAXVAL, ';') == FILE_COMPLETE ) {
-			// 	reset_mode_and_counters(&mode, field_p, value_p);
-			// 	break;
-			// }
 
 			int ret_val;
-			if ( (ret_val = insert(table, field, value)) == NO) {
+			// if there's no field name to look up by, there's no point storing anything
+			if ( strlen(field) > 0 && (ret_val = insert(table, field, value)) == NO) {
 				fatal("out of memory error while storing", field);
 				return ret_val;
 			}
-
 			reset_mode_and_counters(&mode, field_p, value_p);
-
 		}
 	}
 
-	printf("returning record\n");
-	//show_table(table);
-
-	if (rv == FILE_COMPLETE) {
-
+	if (rv == FILE_COMPLETE)
 		return NO;
-	}
 
 	return YES;
 }
@@ -167,7 +163,7 @@ static int read_word(char *target, int max_len, char delim) {
 		} else if ( count == 0 && isspace(c) ) {
 
 			if (DEBUG) 
-				printf("removed a space");
+				printf("removed a space\n");
 			continue;
 
 		} else if ( c == delim || c == '=' || c == '\n') {
@@ -195,10 +191,4 @@ static int read_word(char *target, int max_len, char delim) {
 	return FILE_COMPLETE;
 }
 
-void mailmerge(symtab_t *table, FILE *fmt) {
 
-	/* do stuff */
-
-	return; 
-
-}
