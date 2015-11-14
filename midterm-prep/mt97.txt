@@ -1,0 +1,594 @@
+
+
+
+
+
+
+
+
+
+	  _____________________________________________
+	 |					      |
+	 |		  Midterm Exam		      |
+	 |					      |
+	 | csci-e113	   17 November 1997	      |
+	 |					      |
+	 |____________________________________________|
+
+	   __________________________________________
+	  | Your Name:				    |
+	  |_________________________________________|
+
+
+Instructions:  You have two hours for this exam.  You may use any
+notes or texts you like.  Please put your answers in  the  spaces
+provided  on  this test sheet.	The point values of the questions
+are listed in the table below.	Watch the  time,  write	 clearly,
+good luck.
+
+
+
+		 _______________________________
+		   #	points	 score	 totals
+		 _______________________________
+		   1	   4
+		 _______________________________
+		   2	   4
+		 _______________________________
+		   3	   4
+		 _______________________________
+		   4	   4
+		 _______________________________
+		   5	   4
+		 _______________________________
+		   6	   4
+		 _______________________________
+
+		 _______________________________
+		   7	   5
+		 _______________________________
+		   8	   5
+		 _______________________________
+		   9	   5
+		 _______________________________
+
+		 _______________________________
+		  10	  12
+		 _______________________________
+		  11	   6
+		 _______________________________
+
+		 _______________________________
+		  12A	   9
+		 _______________________________
+		  12B	   9
+		 _______________________________
+		  12C	   9
+		 _______________________________
+
+		 _______________________________
+		  13A	   8
+		 _______________________________
+		  13B	   8
+		 _______________________________
+
+		 _______________________________
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Problems  1-6:	Compare	 and Contrast.	For each of the following
+pairs of six fragments, describe the difference in value, effect,
+and/or	utility.   Please  be  concise and stay in the space pro-
+vided.
+1.A.  break;	      ________________________________________
+		      ________________________________________
+  B.  exit(0);	      ________________________________________
+		      ________________________________________
+
+
+
+
+2.A.  char *p1, *p2;  ________________________________________
+      p1 = p2 ;	      ________________________________________
+		      ________________________________________
+  B.  char *p1, *p2;  ________________________________________
+      strcpy(p1, p2);
+
+
+
+
+3.A.  static int i;   ________________________________________
+		      ________________________________________
+  B.  extern int i;   ________________________________________
+		      ________________________________________
+
+
+
+
+
+4.A.  char table[12][2________________________________________
+		      ________________________________________
+  B.  char *table[12];________________________________________
+		      ________________________________________
+
+
+
+
+
+5.A.  while( c = *p++ ________________________________________
+	  putchar(c); ________________________________________
+		      ________________________________________
+  B.  while( c == *p++________________________________________
+	  putchar(c);
+
+
+
+
+6.A.  int n;	      ________________________________________
+      f(n);	      ________________________________________
+		      ________________________________________
+  B.  int n;	      ________________________________________
+      f(&n);
+
+
+
+
+page 1			    csci-e113		     midterm exam
+
+
+
+
+
+
+
+
+
+Problems 7-9: Syntax/Usage.  Something is wrong with each of  the
+following  C fragments.	 State the problem AND correct the error.
+
+7.
+	  char *s = "xyz";
+	  while( s != NULL ){
+		putchar(*s);
+		s++;
+	  }
+
+
+
+8.
+    if ( x >= MIN || x <= MAX )
+	 printf("Number is in range\n");
+
+
+
+9.
+    newnode = (struct node *) malloc( sizeof(struct node) );
+    newnode.next = NULL;
+
+
+
+
+
+Problem 10: Arrays and Pointers: Given the following  definitions
+and initial assignments,
+
+	  int list[] = { 4, 7, 3, 6, 5, 9 };
+	  int *p, *q;
+	  p = list; q = &list[3];
+
+state the value of each of the expressions a) - d):
+a) p[1] = ___	   b) q[1] = ___      c) *q - *p = ___	 d) q - p = ___
+e) what is the type of the expression list + 2? _____
+
+
+Problem	   11:	  Storage
+Classes:  The	following
+program	 shows	only  the
+function   and	 variable
+definitions.  The code is
+not shown.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			    What   variables   and/or
+			    parameters are visible in
+			    each of these  functions?
+	  int x, y;	    (Some   names  appear  in
+			    more than one  place;  be
+	  void f(int y)	    sure   you	identify  the
+	  {		    variable clearly.)
+	     int c;
+	  }		       a) main
+
+	  void g(void)
+	  {
+	     int d;	       b) f
+	  }
+
+	  main()
+	  {		       c) g
+	     int x;
+	  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+midterm exam		    csci-e113			   page 2
+
+
+
+
+
+
+
+
+
+Problem 12: Arrays and Loops Concerned about this global  warming
+business,  you	decide	to  investigate for yourself.  You get an
+electronic thermometer, put it outside your window and attach the
+cable to your computer.	 Each hour your computer records the tem-
+perature and stores that integer value in an  array  defined  as:
+int   temp[7][24]  .   After seven days, you have a record of the
+hour-by-hour temperature.  You are now prepared	 to  analyze  the
+data.
+
+12A   Write  a function called avg_temp(int data[7][24], int day)
+that returns as a floating point value the average temperature on
+the day specified by the argument called `day', an integer in the
+range 0..6.
+
+
+
+
+
+
+
+
+
+
+
+
+
+12B  Write  a  function	 called	 scorcher(int  data[7][24])  that
+returns	 the day number (an integer in the range 0..6) of the day
+with the greatest average temperature.	You must call  the  func-
+tion  described	 in  part A above.  If there is more than one day
+with the greatest average temperature, return the day  number  of
+the first one you find.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+page 3			    csci-e113		     midterm exam
+
+
+
+
+
+
+
+
+
+12C Write a function called freezing(int data[7][24]) that prints
+to standard output the day and hours of all times when	the  tem-
+perature was 32 degrees or lower.  The output should look like:
+
+  Monday 2
+  Monday 3
+  Monday 4
+  Monday 5
+  Wednesday 15
+  Wednesday 16
+  Wednesday 17
+   ...
+
+Day 0 is Monday.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+midterm exam		    csci-e113			   page 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+page 5			    csci-e113		     midterm exam
+
+
+
+
+
+
+
+
+
+Problem 13: Linked Lists Consider a linked list like the one we
+used in wlfiler4.c to store words and their frequencies.  Each
+node contains a pointer to a string, a count, and also contains a
+pointer to the next node in the list.  Here are two functions
+that might be useful in analyzing or processing the data in this
+list.
+
+13-A Write a function called word_position(struct word *head,
+char str[]) that takes as arguments a pointer to the head of the
+list and a string.  This function returns the position in the
+list of the link containing str.  The first item in the list is
+item number 0, the next one is item number 1, etc.  If the word
+does not appear in the list, this function returns -1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+13-B Write a function called swap_top2(struct word *head) that
+takes as input the pointer to the head node of the list exchanges
+the first two element in the list.  Assume the list has at least
+two elements.  Here are `before' and `after' pictures:
+
+before					   after
+  +---+	  +---+	  +---+	  +---+		   +---+   +---+   +---+   +---+
+  |   |-->|A  |-->|B  |-->|C  |-->	   |   |-->|B  |-->|A  |-->|C  |-->
+  +---+	  +---+	  +---+	  +---+		   +---+   +---+   +---+   +---+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+midterm exam		    csci-e113			   page 6
+
+
+
+

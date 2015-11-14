@@ -1,0 +1,89 @@
+.de NS
+.sp 8p
+.ti -0.4i
+.ft B
+\\$1
+.ft R
+.sp 3p
+..
+.de DS
+.sp 4p
+.in +0.2i
+.nf
+..
+.de DE
+.fi
+.in -0.2i
+.sp 2p
+..
+.sp 0.4i
+.ce 99
+\fBTopics for the Midterm\fR
+.ps -1
+CSCI-E113
+.ps +1
+.ce 0
+.in +0.4i
+.NS "Data Types"
+Understand and know how to define, initialize, and 
+use variables of various types and scope:
+.DS
+char, int, long, short, unsigned, float, double
+struct
+pointer to char, pointer to int, pointer to long, ..., pointer to struct
+array of char, array of int, array of structs, ...
+array of arrays, array of pointers, pointer to pointer
+local, global, static, extern
+.DE
+.NS "Control Flow"
+Understand and know how to use all C control flow constructs:
+.DS
+for, while, switch, if, do
+functions
+.DE
+.NS Strings
+Understand and know how to define, initialize, and 
+perform various operations on strings, including:
+.DS
+input, output, copy, compare, append, extract substrings,
+search for characters, search for substrings.
+strings and functions
+.DE
+.NS "Pointers and Addresses"
+Understand and be able to read and write code
+for the following:
+.DS
+Pointers to single variables of all types
+Pointers to arrays, Pointers to structs
+Pointers and functions: as arguments and return values
+Arithmetic and comparison operations: ++, --, -, +, <, >, ==, etc
+.DE
+.NS "Type of Processing"
+Understand and be able to write functions to
+perform the following sort of processing:
+.DS
+char by char, field by field, line by line 
+processing several strings or lines using arrays or structs
+processing strings using indexing and using pointers
+processing arrays of chars, arrays of ints, arrays of structs
+using state variables
+.DE
+.NS "Web Interfaces"
+Understand and be able to write simple web interfaces
+using:
+.DS
+HTML form: input, form, action, submit, select, radio
+shell script: pipeline, command line args ($1, $2, ..)
+tools: grep, cut, sort, uniq, echo
+CGI shell connector script
+.DE
+.NS "Understanding and Programming"
+You will be asked to show your understanding and skills
+in the following ways:
+.DS
+Explaining in English: ideas, syntax, and techniques
+Reading code to find errors or predict output
+Drawing diagrams of memory and data structures
+Writing short functions
+Writing short scripts
+.DE

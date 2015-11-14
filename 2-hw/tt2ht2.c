@@ -62,6 +62,7 @@ int main() {
 
 				if (DEBUG_ON)
 					printf("debug: switching to attributes mode \n");
+
 				attr_counter = 0;
 				mode = ATTRIBUTES;
 				continue; 
@@ -138,7 +139,7 @@ int main() {
 			}
 		}
 	}
-
+	return 0;
 }
 
 /*

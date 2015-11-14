@@ -1,0 +1,462 @@
+
+
+
+
+
+
+
+
+
+	  _____________________________________________
+	 |					      |
+	 | csci-e113		      16 November 1998|
+	 |					      |
+	 |		  Midterm Exam		      |
+	 |					      |
+	 |____________________________________________|
+
+	   __________________________________________
+	  | Your Name:				    |
+	  |_________________________________________|
+
+
+Instructions:  You have two hours for this exam.  You may use any
+notes or texts you like.  Please put your answers in  the  spaces
+provided  on  this test sheet.	The point values of the questions
+are listed in the table below.	Watch the  time,  write	 clearly,
+good luck.
+
+
+
+		 _______________________________
+		   #	points	 score	 totals
+		 _______________________________
+		   1	   4
+		 _______________________________
+		   2	   4
+		 _______________________________
+		   3	   4
+		 _______________________________
+		   4	   4
+		 _______________________________
+		   5	   4
+		 _______________________________
+		   6	   4
+		 _______________________________
+
+		 _______________________________
+		   7	   5
+		 _______________________________
+		   8	   5
+		 _______________________________
+		   9	   5
+		 _______________________________
+
+		 _______________________________
+		  10	  18
+		 _______________________________
+
+		 _______________________________
+		  11A	  10
+		 _______________________________
+		  11B	  10
+		 _______________________________
+
+		 _______________________________
+		  12A	   5
+		 _______________________________
+		  12B	  10
+		 _______________________________
+
+		 _______________________________
+		  13	   8
+		 _______________________________
+
+		 _______________________________
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+		|    |	      |	      |	       |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Problems  1-6:	Compare	 and Contrast.	For each of the following
+pairs of six fragments, describe the difference in value, effect,
+and/or	utility.   Please  be  concise and stay in the space pro-
+vided.
+1.A.  char x[100];	________________________________________
+			________________________________________
+  B.  char *x;		________________________________________
+			________________________________________
+
+
+
+
+2.char *p1, *p2;	________________________________________
+			________________________________________
+  A.  if ( p1 == p2 )	________________________________________
+	  f();		________________________________________
+
+  B.  if ( strcmp(p1,p2) == 0 )
+	  f();
+
+
+3.A.  return(0);	________________________________________
+			________________________________________
+  B.  exit(0);		________________________________________
+			________________________________________
+
+
+
+
+
+4.A.  x = --y ;		________________________________________
+			________________________________________
+  B.  x = y - 1;	________________________________________
+			________________________________________
+
+
+
+
+
+5.A.  fscanf(stdin,"%s",________________________________________
+			________________________________________
+  B.  fgets(buffer, LEN,________________________________________
+			________________________________________
+
+
+
+
+
+6.char *str, *p;	________________________________________
+  A.  p = malloc(strlen(________________________________________
+			________________________________________
+  B.  p = malloc(sizeof(________________________________________
+
+
+
+
+
+page 1			    csci-e113		     midterm exam
+
+
+
+
+
+
+  Problems 7-9: Syntax/Usage.  Something is wrong  with	 each  of
+  the  following  C fragments.	State the problem AND correct the
+  error.
+
+  7.
+       void copy_string(char *str1, char *str2)
+       {
+	  int i;
+	  for( i = 0 ; str1[i] ; i++ )
+	    str2[i] = str1[i];
+       }
+
+
+  8.
+       char *p;
+       p = malloc( strlen( str + 1 ) );
+
+
+
+
+  9.
+       while( c = getchar() != EOF )
+	   putc(c, stdout);
+
+
+
+
+
+  Problem 10: Arrays and Strings: Given the following definitions
+  and initial assignments,
+
+	    char *s[4] = { "fall", "winter", "summer", "spring" };
+	    int	 j = strlen( s[0] );
+	    char *p = s[1] , *q = p + 1;
+
+___________________________________________________________________________
+| state the value of each of the expressions a) - d):			   |
+| a) p[0] = ___	  b) p[j] = ___	  c) *q = ___	d)  s[1][1] - s[3][3] = ___|
+|__________________________________________________________________________|
+| e) what is the type of the expression &s[2]? _____			   |
+|__________________________________________________________________________|
+| f)  Notice  that  "summer"  and  "spring" are in the			   |
+| wrong order in this array.  Write  a	code  fragment			   |
+| that will exchange the order of those two words.			   |
+|									   |
+|									   |
+|									   |
+|									   |
+|									   |
+|									   |
+|									   |
+|									   |
+|									   |
+|__________________________________________________________________________|
+
+
+
+
+
+midterm exam		    csci-e113			   page 2
+
+
+
+
+
+
+  Problem 11: Arrays and Pointers
+  Part	A    Consider the array { 2,3,5,10,12,15 }.  It is a list
+  of numbers in ascending order.  On the other hand,the	 array	{
+  2,3,5,4,12,15	 }  is	not  in ascending order because 4 is less
+  than 5.  Write a function
+     int in_order(int list[], int len )
+  that determines if the array of integers `list' is in ascending
+  order.   The array contains `len' elements.  `len' may be zero.
+  The function returns 1 if the elements  in  the  array  are  in
+  ascending order, and it returns 0 if not.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Part	B    Write a function to add together two arrays of inte-
+  gers.	  For  example,	 if  the  arrays  are	{1,2,3,4,0}   and
+  {2,3,4,5,0} then the result will be the array {3,5,7,9,0}.  The
+  function should add arrays by	 adding	 corresponding	elements.
+  The  function	 takes three arguments: the two arrays to add and
+  an array for the result.  Each array is terminated by	 an  ele-
+  ment	equal  to zero, so there is no need to send in the length
+  of the array.	 Your solution	must  use  pointers  and  pointer
+  operations.  It may not use array indexing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+page 3			    csci-e113		     midterm exam
+
+
+
+
+
+
+  Problem 12: Memory and Structs
+  A  computer science teacher teaches a class of NUM students and
+  assigns six programming assignments and two  tests  during  the
+  term.	 He designs the following data structure to store student
+  information:
+     struct student
+     {
+	 int   idnumber;
+	 char  *name ;
+	 int   grades[6];
+	 int   tests[2];
+     }
+     struct student class[NUM];
+
+  a)   Sketch a diagram of this data structure. You do	not  need
+  to draw all 25 records, one or two will do.
+
+
+
+
+
+
+
+
+
+
+  b)  Write a function
+      print_hw_grades(	struct	student	 class[], int hw_number ,
+  int len)
+  that prints a report of the form:
+       HW#2 Name
+	 92 Barbara
+	 88 Charlie
+	 90 Edith
+	...
+  The function is passed the list of students, an assignment num-
+  ber,	and  the number of students in the class.  The assignment
+  number is an integer in the range 0 to 5.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+midterm exam		    csci-e113			   page 4
+
+
+
+
+
+
+  Problem 13: Linked Lists
+  The wlfiler5.c package used an array	of  26	linked	lists  to
+  store	 word-value  pairs.   This  system speeds up searching by
+  breaking the list of words into 26 separate lists.  If the num-
+  ber  of  words  grows large each of those 26 lists could become
+  long and slow to search.  One solution is to replace the  array
+  of linked lists with a linked list of linked lists.
+
+_________________________________________________________________________________________________________
+| Picture				      |	 Data Types						 |
+|_____________________________________________|__________________________________________________________|
+|					      |	    struct link						 |
+|   +----+---+--+   +--+--+--+	 +--+--+--+   |	    {							 |
+|   | ab |   |	|-->|  |  |  |-->|  |  |  |-->|	       char	   *word;   /* ptr to word	*/	 |
+|   +----+-+-+--+   +--+--+--+	 +--+--+--+   |	       int	   value;   /* word frequency	*/	 |
+|	   |				      |	       struct link *next;   /* ptr to next word */	 |
+|	   V				      |	    } ;							 |
+|   +----+---+--+   +--+--+--+		      |								 |
+|   | at |   |	|-->|  |  |  |-->NULL	      |	    struct list						 |
+|   +----+-+-+--+   +--+--+--+		      |	    {							 |
+|	   |				      |	       char	   *prefix; /* bucket prefix	*/	 |
+|	   V				      |	       struct list *next  ; /* ptr to next list */	 |
+|   +----+---+--+   +--+--+--+	 +--+--+--+   |	       struct link *words ; /* ptr to words	*/	 |
+|   | br |   |	|-->|  |  |  |-->|  |  |  |-->|	    }							 |
+|   +----+-+-+--+   +--+--+--+	 +--+--+--+   |								 |
+|	   |				      |	    struct list	    head ;  /* head of list of lists   */|
+|	   V				      |								 |
+|					      |								 |
+|_____________________________________________|__________________________________________________________|
+
+  This	system	uses  a	 two-letter prefix to identify each list.
+  All the words that start with `ab' are in the list  pointed  to
+  by the struct list containing the prefix "ab".  Thus, the words
+  `about', `able', `abound' are all on the first list.	All words
+  starting with "at" are in the second list.  And so on.
+
+  Write	 a  function  to  print out all the words in this `table'
+  that have a frequency of 10 or greater.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+page 5			    csci-e113		     midterm exam
+
+
+
+

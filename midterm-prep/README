@@ -1,0 +1,13 @@
+The files in this directory are samples of midterm exams.
+
+Each exam appears in various formats.  
+
+    Name         What                            Format
+    ----------   -----------------------------   ------------
+    mt##.tr      midterm given in the year ##    troff
+    mt##.txt     midterm given in the year ##    text
+    mt##.pdf     midterm given in the year ##    pdf
+
+ The .tr file is the source file.  The .txt and the .pdf file are
+ generated from the .tr file.  All three of these contain the same
+ data, only the format differs

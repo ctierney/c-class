@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
 #define LINE_LEN			512
-#define TAB_CHAR			"\t"
 
 int readline (char[], int);
 
@@ -20,9 +18,8 @@ int main()
 
 	char line[LINE_LEN]; 
 	int i;
-	char delimiter[2] = " ";
+	char space[2] = " ";
 	char *token;
-	int counter = 0;
 
 	/* open the table */
 	printf("<table>\n");
@@ -30,26 +27,18 @@ int main()
 	/* read in a line */ 
 	while ( (i = readline(line, LINE_LEN)) != 0) {
 
-		/* determine if it's tabs or space separated, if it has 
-			a tab in it, we assume it's a tab separated file. 
-			this solves the problem of spaces in a tab separated file
-			causing extra columns  */
-		if (counter++ == 0 && (strstr(line, TAB_CHAR) > 0)) {
-			strcpy(delimiter, "\t");
-		}
-
 		/* begin the table row */
 		printf("\t<tr>\n");
 
 		/* get a token */
-		token = strtok(line, delimiter);
+		token = strtok(line, space);
 
 		while (token != NULL) {
 
 			printf("\t\t<td>%s</td> \n", token);
 
 			/* get the next token */
-			token = strtok(NULL, delimiter);
+			token = strtok(NULL, space);
 		}
 
 		/* end the table row */
@@ -87,6 +76,4 @@ int readline (char str[], int n) {
 	//printf("readline returning %s with length %d \n",str, i);
 	return rv;
 }
-
-
 

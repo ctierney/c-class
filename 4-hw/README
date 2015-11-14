@@ -1,0 +1,24 @@
+Chris Tierney
+Homework 4
+
+1> implement all the functions in the sample programs (wlfiler1.c...) from lecture.
+
+The required functions are implemented in wlfiler6.c
+
+2> word_delete(char str[])
+
+word_delete(str[]) can be found in wlfiler6.c
+
+3> write a new read_word() function that returns a pointer to a word that was read from stdin.
+
+explanation: since scanf() takes a pointer to a char array, it's limited to reading words that can fit into 
+the memory that has been allocated to that memory space. I have replaced that method with a function called read_word() which dynamically allocates memory and grows that memory to the size that is required. 
+
+I was a little confused that wlmain.c is also sym-linked from lib113 in my directory after 
+performing this command: 
+
+ln -s  ̃lib113/hw/wf/files/*  .
+
+..in accordance with the instructions. But, I assume it's okay to overwrite that so that I 
+can use my new read_word function.
+

@@ -1,0 +1,420 @@
+.ps 12
+.sp 1.5i
+.TS
+center box linesize(8);
+lw(2i) rw(2i)
+c      s.
+.sp 8p
+csci-e113	16 November 1998
+.sp 8p
+\fIMidterm Exam\fR
+.sp 8p
+.TE
+
+.ps 10
+.TS
+center box;
+lw(4i).
+.sp 6p
+Your Name:
+.sp 6p
+.TE
+
+
+.hy 14
+.ps 11
+.vs 13p
+\fIInstructions:\fR  You have two hours for this exam.  You may use any
+notes or texts you like.  Please put your answers in the spaces provided
+on this test sheet.  The point values of the questions are listed in the
+table below.  Watch the time, write clearly, good luck.
+
+
+.ps 10
+.vs 12p
+
+.TS
+center allbox ;
+cI cI cI cI
+n  n  l  l.
+#	points	score	totals
+1	4
+2	4
+3	4
+4	4
+5	4
+6	4
+
+7	5
+8	5
+9	5
+
+10	18
+
+11A	10
+11B	10
+
+12A	5
+12B	10
+
+13	8
+
+.TE
+.bp
+.sp 0.6i
+.ft I
+.hy 14
+Problems 1-6: Compare and Contrast.  \fRFor each of the following pairs of
+six fragments, describe the difference in value, effect, and/or utility.
+Please be concise and stay in the space provided.
+.ft R
+
+.sp |1.25i
+1.
+.sp |2.75i
+2.
+.sp |4.25i
+3.
+.sp |5.75i
+4.
+.sp |7.25i
+5.
+.sp |8.75i
+6.
+
+.in +0.25i
+.ft C
+.ps 8
+.vs 10p
+.nf
+.sp |1.25i
+A.  char x[100];
+    
+B.  char *x;
+.sp |2.75i
+char *p1, *p2;
+
+A.  if ( p1 == p2 )
+        f();
+
+B.  if ( strcmp(p1,p2) == 0 )
+        f();
+.sp |4.25i
+A.  return(0);
+
+B.  exit(0);
+.sp |5.75i
+A.  x = --y ;
+
+B.  x = y - 1;
+.sp |7.25i
+A.  fscanf(stdin,"%s", buffer);
+
+B.  fgets(buffer, LEN, stdin);
+.sp |8.75i
+char *str, *p;
+A.  p = malloc(strlen(str));
+
+B.  p = malloc(sizeof(str));
+.in +2.25i
+.ft R
+.ps 10
+.vs 18p
+.sp |1.25i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |2.75i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |4.25i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |5.75i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |7.25i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |8.75i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.in -2.25i
+.sp |10.2i
+.ps 8
+.tl 'page 1'csci-e113'midterm exam'
+.ps 10
+.bp
+.sp 0.4i
+.ft I
+.fi
+Problems 7-9: Syntax/Usage.  \fRSomething is wrong with each of the following
+C fragments.  State the problem \s8AND\s0 correct the error.
+.ft R
+.nf
+
+7.
+.ft C
+.ps 8
+.vs 10p
+     void copy_string(char *str1, char *str2)
+     {
+        int i;
+        for( i = 0 ; str1[i] ; i++ )
+          str2[i] = str1[i];
+     }
+.ft R
+.ps 10
+
+
+8.
+.ft C
+.ps 8
+     char *p;
+     p = malloc( strlen( str + 1 ) );
+
+
+.ft R
+.ps 10
+
+
+9.
+.ft C
+.ps 8
+     while( c = getchar() != EOF )
+         putc(c, stdout);
+
+
+.ft R
+.ps 10
+
+
+
+.ft I
+.fi
+Problem 10: Arrays and Strings: \fRGiven the following definitions and
+initial assignments,
+.ft C
+.ps 9
+.nf
+.vs 11p
+
+          char *s[4] = { "fall", "winter", "summer", "spring" };
+          int  j = strlen( s[0] );
+          char *p = s[1] , *q = p + 1;
+.vs 12p
+.ps 10
+.ft R
+.fi
+
+.sp 4p
+.TS
+center tab(|) box;
+l  s  s  s  
+l  l  l  l
+l  s  s  s  .
+.sp 3p
+state the value of each of the expressions a) - d):
+.sp 3p
+a) \fCp[0] = ___\fR|b) \fCp[j] = ___\fR|c)\fC *q = ___\fR|d) \fC s[1][1] - s[3][3] = ___\fR
+.sp 3p
+_
+.sp 6p
+e) what is the \fItype\fR of the expression \fC&s[2]\fR? _____
+.sp 6p
+_
+.sp 3p
+T{
+f) Notice that "summer" and "spring" are in the wrong order in this
+array.  Write a code fragment that will exchange the order of those
+two words.
+T}
+.sp 1.5i
+.TE
+.sp 4p
+
+.sp |10.2i
+.ps 8
+.tl 'midterm exam'csci-e113'page 2'
+.ps 10
+.bp
+.sp 0.4i
+.ft I
+Problem 11: Arrays and Pointers\fR
+.sp 4p
+\fBPart A\fR\ \ 
+Consider the array \fC{ 2,3,5,10,12,15 }\fR.  It is a list of numbers
+in ascending order.  On the other hand,the array \fC{ 2,3,5,4,12,15 }\fR
+is not in ascending order because 4 is less than 5.
+Write a function 
+.sp 6p
+   \fCint in_order(int list[], int len )\fR
+.sp 6p
+that determines if the array of integers `list' is in ascending order.  
+The array contains `len' elements.  `len' may
+be zero.  The function returns 1 if the elements in the array are
+in ascending order, and it returns 0 if not.
+
+.sp |5i
+\fBPart B\fR\ \ 
+Write a function to add together two arrays of integers.  For example,
+if the arrays are \fC{1,2,3,4,0}\fR and \fC{2,3,4,5,0}\fR then the result
+will be the array \fC{3,5,7,9,0}\fR.  The function should add arrays
+by adding corresponding elements.  The function takes three arguments:
+the two arrays to add and an array for the result.  Each array is terminated
+by an element equal to zero, so there is no need to send in the length of
+the array.  Your solution \fImust\fR use pointers and pointer operations.
+It may not use array indexing.
+.sp |10.2i
+.ps 8
+.tl 'page 3'csci-e113'midterm exam'
+.ps 10
+.bp
+.sp 0.4i
+.ft I
+Problem 12: Memory and Structs
+.ft R
+.sp 6p
+A computer science teacher teaches a class of \fC\s-2NUM\s+2\fR students and 
+assigns
+six programming assignments and two tests during the term.  He designs 
+the following data structure to store student information:
+.ft C
+.ps 8
+.vs 10p
+.nf
+   struct student 
+   {
+       int   idnumber;
+       char  *name ;
+       int   grades[6];
+       int   tests[2];
+   }
+   struct student class[NUM];
+
+.fi
+.vs 12p
+.ps 10
+.ft R
+\fBa)\fR\ \ 
+Sketch a diagram of this data structure. You do not need to draw
+all 25 records, one or two will do.
+.sp 1.5i
+
+\fBb)\fR\ \ Write a function 
+.sp 6p
+.ps 8
+    \fCprint_hw_grades( struct student class[], int hw_number , int len)\fR
+.ps 10
+.sp 6p
+that prints a report of the form:
+.sp 6p
+.ft C
+.ps 8
+     HW#2 Name
+       92 Barbara
+       88 Charlie
+       90 Edith
+      ...
+.ps 10
+.ft R
+.sp 6p
+The function is passed the list of students, an assignment number, and
+the number of students in the class.  The assignment number is an integer
+in the range 0 to 5.
+.sp |10.2i
+.ps 8
+.tl 'midterm exam'csci-e113'page 4'
+.ps 10
+.bp
+.sp 0.4i
+.ft I
+Problem 13: Linked Lists
+.ft R
+.sp 6p
+The wlfiler5.c package used an array of 26 linked lists to store word-value
+pairs.  This system speeds up searching by breaking the list of words into
+26 separate lists.  If the number of words grows large each of those 26
+lists could become long and slow to search.  One solution is to replace the
+array of linked lists with a linked list of linked lists.
+
+.TS
+box center;
+lB | lB
+l  | l.
+Picture	Data Types
+_
+T{
+.ft C
+.nf
+.ps 8
+.vs 10p
+
+  +----+---+--+   +--+--+--+   +--+--+--+
+  | ab |   |  |-->|  |  |  |-->|  |  |  |-->
+  +----+-+-+--+   +--+--+--+   +--+--+--+
+         |
+         V
+  +----+---+--+   +--+--+--+
+  | at |   |  |-->|  |  |  |-->NULL
+  +----+-+-+--+   +--+--+--+
+         |
+         V
+  +----+---+--+   +--+--+--+   +--+--+--+
+  | br |   |  |-->|  |  |  |-->|  |  |  |-->
+  +----+-+-+--+   +--+--+--+   +--+--+--+
+         |
+         V
+
+.ft R
+.ps 10
+.vs 12p
+T}	T{
+.nf
+.ft C
+.ps 8
+.vs 10p
+   struct link
+   {
+      char        *word;   /* ptr to word      */
+      int         value;   /* word frequency   */
+      struct link *next;   /* ptr to next word */
+   } ;
+
+   struct list
+   {
+      char        *prefix; /* bucket prefix    */
+      struct list *next  ; /* ptr to next list */
+      struct link *words ; /* ptr to words     */
+   }
+
+   struct list     head ;  /* head of list of lists   */
+.vs 12p
+.ft R
+.ps 10
+T}
+.TE
+
+This system uses a two-letter prefix to identify each list.
+All the words that start with `ab' are in the list pointed
+to by the \fCstruct list\fR containing the prefix "ab".  Thus,
+the words `about', `able', `abound' are all on the first list.
+All words starting with "at" are in the second list.  And so on.
+
+Write a function to print out all the words in this `table' that
+have a frequency of 10 or greater.
+.sp |10.2i
+.ps 8
+.tl 'page 5'csci-e113'midterm exam'
+.ps 10

@@ -11,7 +11,7 @@
 #define NO_PROCESS_CLOSE	"</noprocess>"
 #define ATTRIBUTES_OPEN		"<attributes>"
 #define ATTRIBUTES_CLOSE	"</attributes>"
-#define DEBUG_ON			1
+#define DEBUG_ON			0
 
 
 int readline (char[], int);
@@ -40,7 +40,6 @@ int main() {
 	int mode = PROCESS;
 	char *token;
 	int column_num = 0;
-	char space[2] = " ";
 	char delim = ' ';
 	char *delim_ptr = &delim;
 
@@ -82,13 +81,17 @@ int main() {
 			/* convert tables to html */
 			} else {
 
+				if (DEBUG_ON) {
+					printf("processing %s \n", line);
+				}
+
 				column_num = 0;
 
 				/* begin the table row */
 				printf("\t<tr>\n");
 
 				/* get a token */
-				token = strtok(line, delim);
+				token = strtok(line, &delim);
 
 				while (token != NULL) {
 
@@ -107,7 +110,7 @@ int main() {
 					printf("\t\t<td%s>%s</td> \n",style_label,token);
 
 					/* get the next token */
-					token = strtok(NULL, space);
+					token = strtok(NULL, &delim);
 					column_num++;
 					style_label[0] = '\0';
 				}
@@ -115,6 +118,7 @@ int main() {
 				/* end the table row */
 				printf("\t</tr>\n");
 			}
+
 
 		/* noprocess mode */ 
 		} else if (mode == NOPROCESS) {
@@ -151,7 +155,7 @@ int main() {
 			}
 		}
 	}
-
+	return 0;
 }
 
 /*

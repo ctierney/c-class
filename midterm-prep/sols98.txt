@@ -1,0 +1,132 @@
+
+
+csci-e113		midterm solutions		fall 1998
+_________________________________________________________________
+1. A creates con-   |  4. A decrements	   |  7. The null byte
+tiguous storage for |  y and stores the	   |  is not copied to
+100 chars and sets  |  new value in x.	   |  the result
+the name x equal to |  B stores in x a	   |  array.  The sim-
+the starting address|  value one less	   |  plest fix is to
+of that block of    |  than the value	   |  add the line
+memory.	 B creates a|  in y.  In both	   |  str2[i] = '\0';
+single pointer vari-|  cases x gets the	   |  after the loop.
+able capable of	    |  same value, but	   |  8. Adding 1 to
+storing the address |  only in case A	   |  str will pass
+of a block of char- |  does the value	   |  the address of
+acters.	 In B, you  |  in y change.	   |  the second char
+need to set x to    |  5. A reads one	   |  in str to
+point to some actual|  white-space-sep-	   |  strlen().
+memory.		    |  arated string	   |  Change the
+2. A compares the   |  into the array	   |  expression to
+addresses stored in |  called buffer.	   |  strlen(str)+1.
+two pointers to see |  B reads one com-	   |  9. You need
+if the addresses are|  plete line into	   |  parentheses
+equal.	B checks if |  buffer.	Use A	   |  around c =
+the strings pointed |  to read in	   |  getchar() or
+to by p1 and p2 con-|  words, use B to	   |  else the compar-
+tain the same char- |  read in lines.	   |  ison to EOF will
+acters.	 You would  |  6. The differ-	   |  be done before
+use A if you wanted |  ence here is	   |  the assignment.
+to see if p1 and p2 |  strlen() vs	   |
+pointed to the same |  sizeof().	   |  10. a) 'w' b)
+place in memory, you|  Strlen returns	   |  'e' c) 'i' d) 0
+would use B when you|  the number of	   |  e) pointer to
+wanted to see if the|  characters in a	   |  pointer to char
+strings were the    |  string (not	   |	  f)
+same.		    |  including the	   |	   char *tmp;
+3. return causes    |  null byte) while	   |	   tmp = s[2];
+control to leave the|  sizeof() returns	   |	   s[2] =
+current function and|  the number of	   |  s[3];
+send a value back to|  bytes used by	   |	   s[3] = tmp;
+the calling func-   |  the variable.	   |
+tion.  exit() causes|  In B, the value	   |
+control to leave the|  will be the size	   |
+current program and |  of a pointer	   |
+send a value back to|  variable, which	   |
+the program that    |  is 4 bytes on	   |
+called it.  Use A   |  32-bit machines	   |
+when you to leave a |  and 8 bytes on	   |
+function, use B to  |  64-bit machines.	   |
+leave a program.    |			   |
+_________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #11A					    |  /* #12B */
+ * see if list is in order		    |  /* traverse an array of structs selecting the name
+ */					    |	* and an item from the grade array
+					    |	*/
+int in_order( int list[], int len )	    |  void
+{					    |  print_hw_grades(struct student class[], int hw, int len)
+    int p;				    |  {
+					    |	  int i;
+    if ( len>=2 )			    |
+      for( p = 0 ; p<len-1 ; p++ )	    |	  printf( "HW#%d Name\n", hw );
+	 if ( list[p] >= list[p+1] )	    |	  for( i=0; i<len ; i++ )
+	   return 0;			    |	    printf( "%4d %s\n", class[i].grades[hw], class[i].name);
+    return 1;				    |  }
+}					    |
+					    |
+					    |
+/* #11B					    |  /* 13A */
+ * add two zero-terminated int arrays	    |
+ * put sum in *res			    |  /*
+ */					    |	* traverse a linked list of lists, and for each
+void add_arrays(int *l1, int *l2, int *res )|	* list in the list, traverse IT looking for a specific
+{					    |	* value.
+   while( *l1 )				    |	*/
+     *res++ = *l1++ + *l2++ ;		    |  void over10()
+   *res = *l1 ;				    |  {
+}					    |	   struct list *listp;
+					    |	   struct link *linkp;
+/* #12A */				    |
+					    |	   for( listp=head.next ; listp ; listp=listp->next )
+an array of 25 structs, each struct contains|	      for( linkp=listp->words ; linkp ; linkp=linkp->next )
+an int, a ptr, an array of 6 ints, and	    |		  if ( linkp->value > 10 )
+an array of 2 ints.			    |		     printf("%s\n", linkp->word );
+					    |  }
+					    |
+					    |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

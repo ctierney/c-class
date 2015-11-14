@@ -10,32 +10,56 @@ CS-E26
 - wc
 
 My table: 
-http://sites.harvard.edu/~ctierney/hw2/table.html
+http://sites.harvard.edu/~ctierney/hw2/table.html 
 
+(doesn't work currently, but, there is a problem with the server)
 
 2: Use a text editor to output who as an html file 
 
+I made some changes, and I think they should be fine, but, I am currently 
+unable to preview them on the nice.fas.harvard.edu machine.
+
+When it comes online again, it should be here:
+http://sites.harvard.edu/~ctierney/hw2/who.html
 
 3a: tt2ht1.c
 
-done
-
+I initially wrote this to only operate on the spaces, but, in testing the
+code with the command that queries the sched file, I noticed that it didn't 
+look very good. So, I added the concept of detecting whether the data is tab 
+delimited or space delimited. So, now it just looks for tabs in the first line, 
+and if it finds any assumes that this is going to be a tab delimited file. I think
+it's a safe assumption so I left it in there.
 
 
 3b: tt2ht1.c with cgi 
 
-
+I probably should write some code to ignore commented out lines in fstab, but, I think that 
+is probably out of scope. Otherwise, this works well.
 
 4a: tt2ht2.c
 
-done
+I stripped off whitespace in this one in the beginning of the line. I could easily comment that 
+out, but, I thought it was a nice feature, so I left it in. This program does not allow for overlapping 
+tags. In my opinion, we should not hide problems like that, but, rather make the problems obvious up front.
+
+There is a DEBUG_ON flag that you can use to see really what is going on in the program. Just switch it to 
+1 and the debug statements will come out. If this is not helpful in the future, I'm happy to strip them out. 
+Hopefully you will appreciate them, otherwise let me know.
 
 4b: 
 
+Running this:
+./part4b.cgi
+
+will give you the output.
 
 5: tt2ht3.c
 
-need to add 
+I had to do something funky here to get my pointer to work, I may not have gotten it 100% right, I think 
+the pointer math is off slightly, but, I can't tell why. I am going to submit this as is, but, hopefully 
+fix it and submit it again later. I lost a lot of time today to trying to figure out why my web server wasn't 
+working so I'm running out of time. 
 
 
 

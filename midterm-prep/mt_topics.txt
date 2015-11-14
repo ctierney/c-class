@@ -1,0 +1,132 @@
+
+
+
+
+
+
+		   Topics for the Midterm
+			 CSCI-E113
+
+Data Types
+    Understand and know how to define, initialize,  and	 use
+    variables of various types and scope:
+      char, int, long, short, unsigned, float, double
+      struct
+      pointer to char, pointer to int, pointer to long, ..., pointer to struct
+      array of char, array of int, array of structs, ...
+      array of arrays, array of pointers, pointer to pointer
+      local, global, static, extern
+
+Control Flow
+    Understand and know how to use all C control  flow	con-
+    structs:
+      for, while, switch, if, do
+      functions
+
+Strings
+    Understand and know how to define, initialize, and	per-
+    form various operations on strings, including:
+      input, output, copy, compare, append, extract substrings,
+      search for characters, search for substrings.
+      strings and functions
+
+Pointers and Addresses
+    Understand and be able to read and write  code  for	 the
+    following:
+      Pointers to single variables of all types
+      Pointers to arrays, Pointers to structs
+      Pointers and functions: as arguments and return values
+      Arithmetic and comparison operations: ++, --, -, +, <, >, ==, etc
+
+Type of Processing
+    Understand and be able to write functions to perform the
+    following sort of processing:
+      char by char, field by field, line by line
+      processing several strings or lines using arrays or structs
+      processing strings using indexing and using pointers
+      processing arrays of chars, arrays of ints, arrays of structs
+      using state variables
+
+Web Interfaces
+    Understand and be able to write  simple  web  interfaces
+    using:
+      HTML form: input, form, action, submit, select, radio
+      shell script: pipeline, command line args ($1, $2, ..)
+      tools: grep, cut, sort, uniq, echo
+      CGI shell connector script
+
+Understanding and Programming
+    You will be asked to show your understanding and  skills
+    in the following ways:
+
+
+
+		     November 13, 2004
+
+
+
+
+
+			   - 2 -
+
+
+      Explaining in English: ideas, syntax, and techniques
+      Reading code to find errors or predict output
+      Drawing diagrams of memory and data structures
+      Writing short functions
+      Writing short scripts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		     November 13, 2004
+
+

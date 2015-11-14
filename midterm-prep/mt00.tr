@@ -1,0 +1,399 @@
+.ps 12
+.sp 1.5i
+.TS
+center box linesize(8);
+lw(2i) rw(2i)
+c      s.
+.sp 8p
+csci-e113	20 November 2000
+.sp 8p
+\fIMidterm Exam\fR
+.sp 8p
+.TE
+
+.ps 10
+.TS
+center box;
+lw(4i).
+.sp 6p
+Your Name:
+.sp 6p
+.TE
+
+
+.hy 14
+.ps 11
+.vs 13p
+\fIInstructions:\fR  You have two hours for this exam.  You may use any
+notes or texts you like.  Please put your answers in the spaces provided
+on this test sheet.  The point values of the questions are listed in the
+table below.  Watch the time, write clearly, good luck.
+
+
+.ps 10
+.vs 12p
+
+.TS
+center allbox ;
+cI cI cI cI
+n  n  l  l.
+#	points	score	totals
+1	4
+2	4
+3	4
+4	4
+5	4
+6	4
+
+7	5
+8	5
+9	5
+
+10	9
+pics	6
+&t	3
+
+11A	8
+11B	8
+11B	8
+
+12A	6
+12B	6
+
+13	7
+
+.TE
+.bp
+.sp 0.6i
+.ft I
+.hy 14
+Problems 1-6: Compare and Contrast.  \fRFor each of the following pairs of
+six fragments, describe the difference in value, effect, and/or utility.
+Please be concise and stay in the space provided.
+.ft R
+
+.sp |1.25i
+1.
+.sp |2.75i
+2.
+.sp |4.25i
+3.
+.sp |5.75i
+4.
+.sp |7.25i
+5.
+.sp |8.75i
+6.
+
+.in +0.25i
+.ft C
+.ps 9
+.vs 0.145i
+.nf
+.sp |1.25i
+A.  break;
+
+B.  continue;
+.sp |2.75i
+A.  x += x;
+
+B.  x++;
+.sp |4.25i
+/* declarations */
+
+A.  int *f(char x);
+
+B.  int f(char *x);
+.sp |5.75i
+A.  p = x.next;
+
+B.  p = x->next;
+.sp |7.25i
+A.  int x[100];
+
+B.  extern int x[100];
+.sp |8.75i
+A.  char dog[] = "betsy";
+
+B.  char *dog  = "betsy";
+.in +2.25i
+.ft R
+.ps 10
+.vs 18p
+.sp |1.25i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |2.75i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |4.25i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |5.75i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |7.25i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |8.75i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.in -2.25i
+.sp |10.2i
+.ps 8
+.tl 'page 1'csci-e113'midterm exam'
+.ps 10
+.bp
+.sp 0.4i
+.ft I
+.fi
+Problems 7-9: Syntax/Usage.  \fRSomething is wrong with each of the following
+C fragments.  State the problem \s8AND\s0 correct the error.
+.ft R
+.nf
+
+7.
+.ft C
+.ps 8
+.vs 10p
+     void print_string(char str[])
+     {
+        char *p = str;
+        int  i  = 0;
+        while( str[i] != '\e0' )
+             putchar( *p++ );
+     }
+.ft R
+.ps 10
+
+
+8.
+.ft C
+.ps 8
+     char *p;
+     p = malloc(1 + strlen(str));
+     p = str;
+
+.ft R
+.ps 10
+
+
+9.
+.ft C
+.ps 8
+    while( getchar() != EOF )
+        if ( getchar() == '\en' )
+            num_lines++;
+.ft R
+.ps 10
+
+
+
+.ft I
+.fi
+Problem 10: Arrays and Strings: \fRGiven that the output from running
+this function:
+.ft C
+.ps 9
+.nf
+.vs 11p
+.sp 4p
+    f()
+    {
+          char month[20], *s, *t, c;
+          strcpy(month, "November");
+          s = month;
+          t = ++s;
+          c = ++*t;
+          printf("month = %u,  &s = %u\en", month, &s);
+    }
+.vs 12p
+.ps 10
+.ft R
+.fi
+.sp 4p
+is \fCmonth = 48708,  &s = 48704\fR
+.sp 3p
+.sp 4p
+.TS
+expand center tab(|) box;
+l  s  s  
+l  l  l 
+l  s  s   .
+.sp 3p
+State the values of each of these expressions (use letters for char values):
+.sp 3p
+a) \fCmonth[3] = _______\fP|b) \fCmonth+3 = ____\fP|c) \fC*(month+3) = ____\fP
+.sp 2p
+_
+.sp 3p
+T{
+.ll +0.8i
+Draw a diagram showing all four of these variables as rectangles.  For each
+variable, draw in the picture of the variable
+the value stored in that variable at the time just after
+the printf() statement runs. (use letters, not \s-2ASCII\s+2 codes for chars).
+\fBAlso\fR where possible, show the address in memory of the variable.
+T}
+.sp 1.7i
+_
+.sp 2p
+What do you think is the value of \fC&t\fR ?  Why?
+.sp 0.5i
+.TE
+.sp 4p
+
+.sp |10.2i
+.ps 8
+.tl 'midterm exam'csci-e113'page 2'
+.ps 10
+.bp
+.sp 0.4i
+.ft I
+Problem 11: Working with Strings
+.ft R
+.sp 4p
+The study of DNA has been aided by computers.  Genes are long sequences
+of a few basic molecules, each represented by a single letter.  In C,
+you represent a sequence of letters as a string.  How can you
+compare two strings to see how similar they are?  The function 
+\fCstrcmp()\fR is not useful here, because it tells you which string
+comes before the other in a dictionary.  We need a different sort of
+function for genetic research, one that compares two strings
+to see how many characters they have in common or at how many positions
+they differ.
+.sp 8p
+For this problem, write two versions of the function described here:
+.sp 4p
+.in +0.5i
+.ll -0.5i
+\fBint strdiff(char s[], char t[])\fR  returns a number telling
+at how many places the strings \fIs\fR and \fIt\fR differ.  If the
+strings have different lengths, the `missing' characters in the
+shorter string are considered to be differences.
+.ll +0.5i
+.in -0.5i
+
+\fBPart A\fR\ \ 
+Write a version of \fCstrdiff()\fR that uses array indexing to process
+the strings.  Write the complete function not just the body of the code.
+.sp |5.5i
+\fBPart B\fR\ \ 
+Write a version of \fCstrdiff()\fR that uses pointer operations to
+process the strings.  Write the complete function, not just the body 
+of the code.
+.sp |8.5i
+\fBPart C\fR\ \ 
+Write a new function called \fCstrsame(char s[],char t[])\fR that
+returns the number of positions at which two strings are the same.
+Assume for this function that both strings are of equal lengths.
+This function \fBmust\fR make a call to \fCstrdiff()\fR.
+.sp |10.2i
+.ps 8
+.tl 'page 3'csci-e113'midterm exam'
+.ps 10
+.bp
+.sp 0.4i
+.ft I
+Problem 12: Arrays and Structs
+.ft R
+.sp 6p
+The \fCstrdiff()\fR function you wrote for problem 11 has 
+applications outside of genetic research.  You decide
+to build some general tools to use it.
+A new system stores pairs of strings in structs:
+.ft C
+.ps 9
+.nf
+.vs 11p
+.sp 4p
+   struct pair {
+                  char *s1;            /* first string  */
+                  char *s2;            /* second string */
+                  int  diffs;          /* number of differences */
+                  struct pair *next;   /* for linking   */
+   };
+
+.fi
+.vs 12p
+.ps 10
+.ft R
+As pairs of strings come in, the system needs to store them, compute
+the number of characters where they differ, and then add them to
+a linked list.  You also want a function to search the linked list
+for close matches.  You will write two of these functions.
+
+\fBPart A\fR\ \ 
+Write a function \fCstruct pair *newpair(char s[], char t[])\fR that
+creates one of these structs.  The function takes as input two strings.
+It allocates space for the struct and for the two strings, installs
+the strings, and it records the number of differences.  
+It then returns a pointer to this new struct.
+.sp |6.5i
+\fBPart B\fR\ \ 
+Write a function \fCprint_similar(struct pair *first, int maxdiffs)\fR
+that traverses a linked list of these structs and prints out any
+pairs of strings for which the number of differences is less than or equal to
+\fImaxdiffs\fR.  The function is passed a pointer to the first link
+in the list and the maximum number of differences accepted.  The
+output is of the form
+.ft C
+.ps 9
+.nf
+.vs 11p
+.sp 4p
+ diffs  string1  string2    for example:    3  tunafish  monkfish
+.fi
+.vs 12p
+.ps 10
+.ft R
+.sp |10.2i
+.ps 8
+.tl 'midterm exam'csci-e113'page 4'
+.ps 10
+.bp
+.sp 0.4i
+.ft I
+Problem 13: Uncounting
+.ft R
+.sp 6p
+The \fCuniq -c\fR takes a sequence of lines as input and writes as
+output the number of repetitions and the text of the line.  This
+system of writing out a count and a string is a form of compression 
+called `run length encoding'.  
+
+Write a program to `uncompress' the output of \fCuniq -c\fR .  Your
+program should read from standard input lines of the form:
+.ft C
+.ps 9
+.nf
+.vs 11p
+.sp 4p
+      4 spam and cheese
+      3 spam and egg
+      2 spam and toast
+
+.fi
+.vs 12p
+.ps 10
+.ft R
+and write to standard output each line repeated as many times 
+as specified by the count.
+
+Your program should be a complete, ready to compile and run C program.
+.sp |10.2i
+.ps 8
+.tl 'page 5'csci-e113'midterm exam'
+.ps 10

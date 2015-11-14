@@ -1,0 +1,155 @@
+.sp 0.4i
+.tl 'csci-e113'midterm solutions'fall 1998'
+\l'6.5i'
+.br
+.TS
+tab(|);
+lw(2i)e | le | le.
+T{
+.ps 9
+.vs 0.145i
+.hy 14
+.na
+1. A creates contiguous storage for 100 chars and sets the name x equal
+to the starting address of that block of memory.  B creates a single pointer
+variable capable of storing the address of a block of characters.  In B,
+you need to set x to point to some actual memory.
+.sp 4p
+2. A compares the addresses stored in two pointers to see if the addresses
+are equal.  B checks if the strings pointed to by p1 and p2 contain the
+same characters.  You would use A if you wanted to see if p1 and p2 pointed
+to the same place in memory, you would use B when you wanted to see if the
+strings were the same.
+.sp 4p
+3. return causes control to leave the current function and send a value
+back to the calling function.  exit() causes control to leave the current
+program and send a value back to the program that called it.  Use A when
+you to leave a function, use B to leave a program.
+T}|T{
+.ps 9
+.vs 0.145i
+.hy 14
+.na
+4. A decrements y and stores the new value in x.  B stores in x a value one
+less than the value in y.  In both cases x gets the same value, but only
+in case A does the value in y change.
+.sp 4p
+5. A reads one white-space-separated string into the array called buffer.
+B reads one complete line into buffer.  Use A to read in words, use B to
+read in lines.
+.sp 4p
+6. The do..while loop will execute the block of code at least one time
+and then check the condition.  The while loop checks the condition first
+and, if it fails, will not execute the code.  The do while is particularly
+useful in user-input loops where you want to prompt, get input, and
+then check the input.
+T}|T{
+.ps 9
+.vs 0.145i
+.hy 14
+.na
+7. The null byte is not copied to the result array.  The simplest fix
+is to add the line \fC\s8str2[i] = '\e0';\s0\fP after the loop.
+.sp 4p
+8. Adding 1 to str will pass the address of the second char in str to
+strlen().  Change the expression to \fC\s8strlen(str)+1\s0\fP.
+.sp 4p
+9. You need parentheses around \fC\s8c = getchar()\s0\fP or else the
+comparison to \fC\s8EOF\s0\fP will be done before the assignment.
+
+10. a) 'w' b) 'e' c) 'i' d) 0 e) pointer to pointer to char
+    f)
+.ft C
+.ps 8
+     char *tmp;
+     tmp = s[2];
+     s[2] = s[3];
+     s[3] = tmp;
+.ps 0
+.ft P
+T}
+.TE
+\l'6.5i'
+.TS
+tab(|);
+l | l.
+T{
+.nf
+.ft C
+.ps 8
+.vs 10p
+/* #11A
+ * see if list is in order
+ */
+
+int in_order( int list[], int len )
+{
+    int p;
+
+    if ( len>=2 )
+      for( p = 0 ; p<len-1 ; p++ )
+         if ( list[p] >= list[p+1] )
+           return 0;
+    return 1;
+}
+
+
+/* #11B
+ * add two zero-terminated int arrays
+ * put sum in *res
+ */
+void add_arrays(int *l1,int *l2,int *res)
+{
+   while( *l1 )
+     *res++ = *l1++ + *l2++ ;
+   *res = *l1 ;
+}
+
+/* #12A */
+
+an array of NUM structs, each struct 
+contains an int, a ptr, an array of 
+12 ints, and an array of 12 floats.
+
+T}|T{
+.nf
+.ft C
+.ps 8
+.vs 10p
+/* #12B */
+/* traverse an array of structs selecting the name
+ * and an item from avg_temp array 
+ */
+void 
+print_avgtemps(struct city list[], int month, int len)
+{
+   int i;
+
+   for( i=0; i<len ; i++ )
+     printf( "%8d %s\en", list[i].avg_temp[month], 
+			  list[i].name);
+}
+
+
+
+/* 13A */
+
+/*
+ * traverse a linked list of lists, and for each
+ * list in the list, traverse IT looking for a specific
+ * value.
+ */
+void over10()
+{
+    struct list *listp;
+    struct link *linkp;
+
+    for( listp=head.next ; listp ; listp=listp->next )
+       for( linkp=listp->words ; linkp ; linkp=linkp->next )
+           if ( linkp->value > 10 )
+              printf("%s\en", linkp->word );
+}
+
+
+T}
+.TE

@@ -1,0 +1,388 @@
+.ps 12
+.sp 1.5i
+.TS
+center box linesize(8);
+cw(4i) s
+l      r.
+.sp 8p
+\fIMidterm Exam\fR
+.sp 8p
+csci-e113       17 November 1997
+.sp 8p
+.TE
+
+.ps 10
+.TS
+center box;
+lw(4i).
+.sp 6p
+Your Name:
+.sp 6p
+.TE
+
+
+.hy 14
+.ps 11
+.vs 13p
+\fIInstructions:\fR  You have two hours for this exam.  You may use any
+notes or texts you like.  Please put your answers in the spaces provided
+on this test sheet.  The point values of the questions are listed in the
+table below.  Watch the time, write clearly, good luck.
+
+
+.ps 10
+.vs 12p
+
+.TS
+center allbox ;
+cI cI cI cI
+n  n  l  l.
+#	points	score	totals
+1	4
+2	4
+3	4
+4	4
+5	4
+6	4
+
+7	5
+8	5
+9	5
+
+10	12
+11	6
+
+12A	9
+12B	9
+12C	9
+
+13A	8
+13B	8
+
+.TE
+.bp
+.sp 0.6i
+.ft I
+.hy 14
+Problems 1-6: Compare and Contrast.  \fRFor each of the following pairs of
+six fragments, describe the difference in value, effect, and/or utility.
+Please be concise and stay in the space provided.
+.ft R
+
+.sp |1.25i
+1.
+.sp |2.75i
+2.
+.sp |4.25i
+3.
+.sp |5.75i
+4.
+.sp |7.25i
+5.
+.sp |8.75i
+6.
+
+.in +0.25i
+.ft C
+.ps 8
+.vs 10p
+.nf
+.sp |1.25i
+A.  break;
+    
+B.  exit(0);
+.sp |2.75i
+A.  char *p1, *p2;
+    p1 = p2 ;
+
+B.  char *p1, *p2;
+    strcpy(p1, p2);
+.sp |4.25i
+A.  static int i;
+
+B.  extern int i;
+.sp |5.75i
+A.  char table[12][20];
+
+B.  char *table[12];
+.sp |7.25i
+A.  while( c = *p++ )
+        putchar(c);
+
+B.  while( c == *p++ )
+        putchar(c);
+.sp |8.75i
+A.  int n;
+    f(n);
+
+B.  int n;
+    f(&n);
+.in +2i
+.ft R
+.ps 10
+.vs 18p
+.sp |1.25i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |2.75i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |4.25i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |5.75i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |7.25i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.sp |8.75i
+\l'4i'
+\l'4i'
+\l'4i'
+\l'4i'
+.in -2.25i
+.sp |10.2i
+.ps 8
+.tl 'page 1'csci-e113'midterm exam'
+.ps 10
+.bp
+.sp 0.8i
+.ft I
+.fi
+Problems 7-9: Syntax/Usage.  \fRSomething is wrong with each of the following
+C fragments.  State the problem \s8AND\s0 correct the error.
+.ft R
+.nf
+
+7.
+.ft C
+.ps 8
+.vs 10p
+          char *s = "xyz";
+          while( s != NULL ){
+                putchar(*s);
+                s++;
+          }
+
+
+
+.ft R
+.ps 10
+8.
+.ft C
+.ps 8
+    if ( x >= MIN || x <= MAX )
+         printf("Number is in range\en");
+
+
+
+.ft R
+.ps 10
+9.
+.ft C
+.ps 8
+    newnode = (struct node *) malloc( sizeof(struct node) );
+    newnode.next = NULL;
+
+
+.ft R
+.ps 10
+
+
+
+.ft I
+.fi
+Problem 10: Arrays and Pointers: \fRGiven the following definitions and
+initial assignments,
+.ft C
+.ps 8
+.nf
+.vs 10p
+
+          int list[] = { 4, 7, 3, 6, 5, 9 };
+          int *p, *q;
+          p = list; q = &list[3];
+.vs 12p
+.ps 10
+.ft R
+.fi
+
+state the value of each of the expressions a) - d):
+.sp 4p
+.TS
+center tab(|);
+le le le le le 
+ls s  s  s  s.
+a) \fCp[1] = ___\fR|b) \fCq[1] = ___\fR|c)\fC *q - *p = ___\fR|d) \fCq - p = ___\fR
+.sp 6p
+e) what is the \fItype\fR of the expression \fClist + 2\fR? _____
+.TE
+.sp 4p
+
+
+.TS
+tab(|);
+ls s
+lw(2.5i) lw(2.5i).
+T{
+.ft I
+Problem 11: Storage Classes: \fRThe following program shows only
+the function and variable definitions.  The code is not shown.
+.ft R
+T}
+T{
+.ft C
+.ps 8
+.nf
+.vs 10p
+.in +0.8i
+.sp 0.5i
+  int x, y;
+
+  void f(int y)
+  {
+     int c;
+  }
+
+  void g(void)
+  {
+     int d;
+  }
+
+  main()
+  {
+     int x;
+  }
+.vs 12p
+.ft R
+.ps 10
+.fi
+.in -0.8i
+T}|T{
+What variables and/or parameters are visible in each of these functions?
+(Some names appear in more than one place; be sure you identify the
+variable clearly.)
+
+   a) \fCmain\fR
+.sp 0.5i
+   b) \fCf\fR
+.sp 0.5i
+   c) \fCg\fR
+
+T}
+.TE
+.sp |10.2i
+.ps 8
+.tl 'midterm exam'csci-e113'page 2'
+.ps 10
+.bp
+.sp 0.8i
+.ft I
+Problem 12: Arrays and Loops\fR
+Concerned about this global warming business, you decide to investigate
+for yourself.  You get an electronic thermometer, put it outside your window
+and attach the cable to your computer.  Each hour your computer records the
+temperature and stores that integer value in an array
+defined as:  \fC int  temp[7][24]\fR .  After seven days,
+you have a record of the hour-by-hour temperature.  You are now prepared to
+analyze the data.
+
+\fB12A\fR  Write a function called \fCavg_temp(int data[7][24], int day)\fR
+that returns as a floating point value the average temperature on the
+day specified by the argument called `day', an integer in the range 0..6.
+
+.sp |5.1i
+\fB12B\fR Write a function called \fCscorcher(int data[7][24])\fR that
+returns the day number (an integer in the range 0..6) of the day with
+the greatest average temperature.  You must call the function described
+in part \fBA\fR above.  If there is more than one day with the greatest
+average temperature, return the day number of the first one you find.
+
+.sp |10.2i
+.ps 8
+.tl 'page 3'csci-e113'midterm exam'
+.ps 10
+.bp
+.sp 0.8i
+\fB12C\fR Write a function called \fCfreezing(int data[7][24])\fR
+that prints to standard output the day and hours of all times when
+the temperature was 32 degrees or lower.  The output should look like:
+.nf
+.ps 8
+.ft C
+.vs 10p
+
+  Monday 2
+  Monday 3
+  Monday 4
+  Monday 5
+  Wednesday 15
+  Wednesday 16
+  Wednesday 17
+   ...
+
+.vs 12p
+.ft R
+.ps 10
+.fi
+Day 0 is Monday.
+
+.sp |10.1i
+.ps 8
+.tl 'midterm exam'csci-e113'page 4'
+.ps 10
+.bp 
+.sp |10.2i
+.ps 8
+.tl 'page 5'csci-e113'midterm exam'
+.ps 10
+.bp 
+.sp 0.8i
+.na
+\fIProblem 13: Linked Lists\fR
+Consider a linked list like the one we used in \fCwlfiler4.c\fR to store
+words and their frequencies.  Each node contains a pointer to a string,
+a count, and also contains a pointer to the next node in the list.  Here 
+are two functions that might be useful in analyzing or 
+processing the data in this list.
+
+\fB13-A\fR Write a function called 
+\fCword_position(struct word *head, char str[])\fR that takes as arguments
+a pointer to the head of the list and a string.  This function returns the
+position in the list of the link containing \fCstr\fR.  The first item in
+the list is item number 0, the next one is item number 1, etc.  If the word
+does not appear in the list, this function returns -1.
+.sp |5.2i
+\fB13-B\fR Write a function called \fCswap_top2(struct word *head)\fR
+that takes as input the pointer to the head node of the list exchanges the
+first two element in the list.  Assume the list has at least two elements.
+Here are `before' and `after' pictures:
+.sp 4p
+.ft C
+.ps 8
+.vs 9p
+.nf
+
+before                                     after
+  +---+   +---+   +---+   +---+            +---+   +---+   +---+   +---+   
+  |   |-->|A  |-->|B  |-->|C  |-->         |   |-->|B  |-->|A  |-->|C  |-->
+  +---+   +---+   +---+   +---+            +---+   +---+   +---+   +---+   
+.sp 4p
+.ft R
+.ps 10
+.sp |10.2i
+.ps 8
+.tl 'midterm exam'csci-e113'page 6'
+.ps 10
+

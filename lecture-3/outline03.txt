@@ -1,0 +1,66 @@
+
+
+
+
+
+CSCI-E26                    Lecture 3                     Outline
+_________________________________________________________________
+
+          Topic:    text, text, text (arrays, functions, strings)
+
+          Approach: Build CGI programs, then build the tools they use
+
+          Overview and Intro
+                    Basic Operation of Web Communication
+                       Connect, Request, Act, Reply
+                    Basic parts of a cgi application: form, connector, script, tools
+
+          CGI Example
+                    stationnames - no form needed
+
+          Improving Our Website
+                    Clearer - use hyperlinks to make access to tools as text
+                    Robust - Reduce user error with radio buttons
+                    Flexible - Add choices with radio buttons
+                    Summary: (1) Hyperlinks, (2) radio buttons, (3) if..then..
+
+          C Data Types and Structures
+                    C has only the basic types the machine supports: int, float, char, pointer
+                    Only three types of aggregate storage: array, struct, union
+                    No data types hide any internal structure
+
+          Array Basics
+                    What
+                    Operations: Creating, Indexing, Initializing
+                    => Note: a multi-dimensional array IS an array of arrays
+                    Arrays and Functions: always pass by reference
+                    example: array-func-demo.c
+
+          String Basics
+                    A string is an array of chars with a '\0' to mark end
+                    One works with strings using functions
+
+          String Programming
+                    Inherits from array
+                    Input/Output has special methods
+                    writing splitline
+                    using splitline
+                    writing readln
+                    using readln
+
+
+
+
+
+
+
+
+
+
+
+
+                               last modified: 2014/09/16 21:05:35
+
+
+
+

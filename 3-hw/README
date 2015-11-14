@@ -1,0 +1,224 @@
+Chris Tierney
+Assignment 3 - Paper Pointers 
+
+1. 
+
+complete this sentence: 
+
+An address is a number. An address is the position in memory of a piece of storage. A pointer variable is a piece of storage that can store...
+
+A: an address, which is represented by a number. 
+
+2. 
+
+code is in problem-2.c and picture is in problem2.png
+
+3. 
+
+a) What is the output of the program?
+
+m is 140734571661376, &m is 140734571661376, &m[0] is 140734571661376, m[0] is 4
+p is 140734571661384, &p is 140734571661368, &p[0] is 140734571661384, p[0] is 2
+
+
+b) Draw a diagram showing m and p and their addresses and values.
+
+picture is here:
+problem3.png 
+
+c) Explain why the first three values in the first printf are the same.
+
+Because the array name "m" id just an name for the address of the first item in the array, and it resolves to the address of that first element, also it's address resovles to the address of that element, therefore it's value and address are same as the address of m[0], or &m[0] 
+
+d) Explain why the first three values in the second printf are not the same. 
+
+Well, the first and third values of the second printf are the same, but, since the pointer in this case is a value stored in a separate memory space, the address of p is different than it's value, the address of p[0].
+
+e) What are the values of p[-1] and p[-2]? Explain.
+
+p[-1] is the address of *p (also known as the value of p), offset by -1, which in this case is 140734742661188
+
+p[-2] is the address of *p (also known as the value of p), offset by -2, which is 140734742661184
+
+
+4. 
+(code is in problem4.c)
+
+a) Which lines are compiler errors? Why? Comment them out and recompile. 
+
+printf("p1[0][0] is %lu\n", (unsigned long)p1[0][0]);
+printf("p2[0][0] is %lu\n", (unsigned long)p2[0][0]);
+
+These are errors because the assignments of p1 and p2, here:
+	p1 = n[2];
+    p2 = n + 2;
+assign those pointers to point to one dimensional arrays.
+
+b) What is the output of the program?
+
+n is 140734756767792, n[0] is 140734756767792, n[0][0] is 97
+(n+1) is 140734756767802, (n+1)[0] is 140734756767802, (n+1)[0][0] is 98
+p1 is 140734756767812, p1[0] is 99
+p2 is 140734756767812, p2[0] is 99
+
+c) Draw a diagram showing n, p1, and p2 and their address and values.
+
+see:
+problem4.png
+
+d) Explain why p1 and p2 have the same value.
+
+because subscripting an array resolves to address of the element specified in the array, and pointer addition just moves the pointer to point to n elements to the right in the array. They are doing the same thing. 
+
+e) What do you think the value of p2+1 is? Why? Check it.
+
+p2+1 will equal the address of the a in carol, the next element in the p2 array which is carol. 
+
+5. 
+
+code is in problem5.c
+
+a: a[2] = 4
+b: *(a + 2) = 4
+c: a[4]-a[2] = 2
+d: a[a[4] - 2] = 6
+e: (a+10)[-8] = 4
+
+6. 
+
+code is in problem5.c
+
+a: a[0]
+b: a[4]
+c: a[5][8]
+d: a[2]
+e: a[2]
+
+7. 
+
+code is in problem7.c
+
+a) x = *p;
+
+x = 6
+p points to: 6
+a: { 6, 5, 4, 3, 1, 0}
+
+b) x=p[3]
+
+x = 3
+p points to: 6
+a: { 6, 5, 4, 3, 1, 0}
+
+c) x=++p[3]
+
+x = 4
+p points to: 6
+a: { 6, 5, 4, 4, 1, 0}
+
+d) x=*++p
+
+x = 5
+p points to: 5
+a: { 6, 5, 4, 3, 1, 0}
+
+e: x=++*p
+
+x = 7
+p points to: 7
+a: { 7, 5, 4, 3, 1, 0}
+
+f: x=*p++
+
+x = 6
+p points to: 5
+a: { 6, 5, 4, 3, 1, 0}
+
+g: x=(*p)++
+
+x = 6
+p points to: 7
+a: { 7, 5, 4, 3, 1, 0}
+
+h: x=p[*(p+2)]
+
+x = 1
+p points to: 6
+a: { 6, 5, 4, 3, 1, 0}
+
+
+8. 
+
+The function has 3 errors: 
+
+1. it's attempting to define an int array and return that array to the caller. The array to be mutated, needs to be passed in by reference, and then the values it points to can be operated on. 
+
+2. It has an array out of bounds issue in the for loop. i<= n should be changed to i < n. 
+
+3. It deferences squares[i] which is a value, not a pointer.
+
+I wrote the function like this: 
+(my code is in problem8.c)
+
+int set_squares(int squares[], int n)   /* create a table of squares of ints */
+{
+	//int *squares[n];
+	int i = 0;	
+
+	for(i=0; i<n; i++)
+    	squares[i] = i*i;
+
+    return i;							/* return the size of the array */
+ }
+
+ 9. 
+
+(code in problem9.c)
+
+a) output: 
+
+The string "Hello" has the value 4530908950
+The variable p has the value 4530908950
+The value of "Hello"+1 is 4530908951
+The variable p now has the value 4530908951
+The length of p+1 is 3
+
+b) Draw a diagram of memory showing "Hello" and p
+
+diagram in problem-9.png
+
+The string Hello has the value of it's first character, H, which is 4530908950. When we assign the pointer p to "Hello", p points to the address of H. Since "Hello" can be treated as an array of chars, Hello + 1 will give you the address for the second letter, e, Which is 4530908951, and gets assigned to p. Finally, the lenght of p+1 is 3 because p+1 evaluates to a pointer to the first l in hello, leaving "llo" left in the string, which will result in 3 if passed to strlen().
+
+10. 
+
+a) What is the output of this line of code: putchar("abcde"[3]) ?
+
+d
+
+b) Why is the expression legal? What does it mean?
+
+it works because the string literal is a char array. the expression means the character at index 3 of the 0-based char array "abcde" which evaliuates to d, the fourth letter in the array.
+
+11. the functions are in problem11.c
+
+see strrev() for the array index version, and see strrev_ptr() for the pointer based approach. 
+
+12. 
+
+diagram is in problem12.png
+
+13. 
+
+
+a) "struct stop a[10]" is an array of structs that consist of the full memory space needed to store those structs. "struct stop *b[10]" is an array of pointers to structs of type stop. So, if you need to do any pointer arithmetic, they know how big a stop struct is, otherwise, they are just the size of a regular pointer.  
+
+b) see problem13.png
+
+
+
+
+
+
+
+
+
