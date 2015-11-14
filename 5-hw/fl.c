@@ -3,6 +3,7 @@
 #include	"fl.h"
 #include	"ws13.h"
 #include	<ctype.h>
+#include	<string.h>
 
 /*
  *	formletter program version 1.0
@@ -17,16 +18,18 @@
 #define		DEBUG		0
 #define		ZERO		0
 #define		FILE_COMPLETE	-1
+#define		LOOKING_FOR_TOKEN	3
+#define		TOKEN_FOUND			4
+#define		LOOP	1
 
 
 static char	*myname ;		/* used by fatal() */
-static int read_word(char *, int, char); 
+static int read_word(FILE *,char *, int, char); 
 static void reset_mode_and_counters(int *, char *, char *);
 
 int main(int ac, char *av[])
 {
 	FILE *fpfmt;
-	
 	myname = *av;
 
 	/*
@@ -69,10 +72,66 @@ void fatal(char *s1, char *s2)
 
 void mailmerge(symtab_t *table, FILE *fmt) {
 
-	/* do stuff */
+	/* start in read and print out mode */
+	int mode = LOOKING_FOR_TOKEN; 
+	int c;
+	char field[MAXFLD] = "";
+	int field_ctr = 0;
 
+	while ( (c = fgetc(fmt)) != EOF ) {
+
+		if (mode == LOOKING_FOR_TOKEN) {
+
+			if (c == '%') {
+				
+				mode = TOKEN_FOUND;
+				continue;
+
+			} else {
+				putchar(c);
+			}
+
+		} else if (mode == TOKEN_FOUND) {
+
+			if ( c != '%' && (field_ctr < MAXFLD - 1)) {
+
+				field[field_ctr++] = c;
+
+			} else  {
+
+				if (c == '%') {
+
+					// print the corresponding field, reset counter and field
+					if (field_ctr > 0) {
+
+						//terminate the field and lookup in table
+						field[field_ctr++] = '\0';
+
+						if (field[0] == '!') {
+
+							table_export(table);
+							fflush(stdout);
+							char *cmd_ptr = &field[1];
+							system(cmd_ptr);
+						} else {
+							printf("%s", lookup(table,field));
+						}
+
+					} else  {
+						// was just an escaped %
+						putchar(c);
+					}
+				} else 
+
+				field[0]='\0';
+				field_ctr = 0;
+
+				mode = LOOKING_FOR_TOKEN;
+			}
+
+		}
+	}
 	return; 
-
 }
 
 /*
@@ -100,7 +159,7 @@ int get_record(symtab_t *table, FILE *data) {
 
 		if (mode == READ_FIELD) {
 
-			if ( (rv = read_word(field_p, MAXFLD, ';')) == FILE_COMPLETE) {
+			if ( (rv = read_word(data, field_p, MAXFLD, ';')) == FILE_COMPLETE) {
 
 				// if we're at the end of the file, reset and break out 
 				reset_mode_and_counters(&mode, field_p, value_p);
@@ -110,7 +169,7 @@ int get_record(symtab_t *table, FILE *data) {
 
 		} else if (mode == READ_VALUE) {
 
-			rv = read_word(value_p, MAXVAL, ';');
+			rv = read_word(data, value_p, MAXVAL, ';');
 
 			int ret_val;
 			// if there's no field name to look up by, there's no point storing anything
@@ -143,7 +202,7 @@ static void reset_mode_and_counters(int *mode, char *field, char *value) {
  *
  * return: 0 if ok, 1 if end of line, -1 if EOF  
  */
-static int read_word(char *target, int max_len, char delim) {
+static int read_word(FILE *data, char *target, int max_len, char delim) {
 	
 	if (DEBUG)
 		printf("read_word: getting called \n");
@@ -151,7 +210,7 @@ static int read_word(char *target, int max_len, char delim) {
 	int count = 0;
 	int c = 0	;
 
-	while ( (c = getchar()) != EOF) {
+	while ( (c = fgetc(data)) != EOF) {
 
 		if ( count > max_len - 1) {
 

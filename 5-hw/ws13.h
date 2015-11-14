@@ -34,5 +34,6 @@ void     clear_table(symtab_t *);
 
 /* I added this */
 void     free_table(symtab_t *);
+int 	table_export(symtab_t *);
 
 #endif	/* WS13_INCL */
