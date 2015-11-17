@@ -2,7 +2,7 @@
 #include	"fl.h"
 #include	"ws13.h"
 
-#define DEBUG 1
+#define DEBUG 0
 
 /**
  *	process(fmt, data)
@@ -14,19 +14,17 @@
  *	Errors:  not reported, functions call fatal() and die
  *	history: 2012-11-28 added free_table (10q BW)
  **/
-void process(FILE *fmt, FILE *data)
+void process(FILE *fmt, FILE *data, char field_sep, char record_sep)
 {
 	symtab_t *tab;
 
 	if ( (tab = new_table()) == NULL )
 		fatal("Cannot create storage object","");
 
-	while ( get_record(tab,data) != NO )/* while more data	*/
+	while ( get_record(tab,data, field_sep, record_sep) != NO ) 	/* while more data	*/
 	{
-		
-		if (DEBUG)
-			show_table(tab);
-
+		//printf("table is: \n");
+		//show_table(tab);
 		mailmerge( tab, fmt );		/* merge with format	*/
 		clear_table(tab);		/* discard data		*/
 	}

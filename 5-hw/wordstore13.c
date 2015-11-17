@@ -250,17 +250,13 @@ static void delete_link(struct link *linkp) {
 void
 clear_table(symtab_t *tp)
 {
-
 	//get the first word
 	char *cur_word = firstword(tp);
 
 	//iterate through all words, deleting them
 	while (cur_word != NULL) {
 
-		printf("clear_table: deleting %s\n", cur_word);
-
 		delete(tp, cur_word);
-
 		cur_word = nextword(tp);
 	}
 

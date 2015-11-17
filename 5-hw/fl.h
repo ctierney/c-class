@@ -11,7 +11,7 @@
  *	function declarlations
  */
 
-int	get_record(symtab_t *, FILE *);
+int	get_record(symtab_t *, FILE *, char, char);
 void	mailmerge( symtab_t *, FILE *);
-void	process(FILE*, FILE*);
+void	process(FILE*, FILE*, char, char);
 void	fatal(char *, char *);
